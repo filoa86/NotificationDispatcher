@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationDispatcher", "NotificationDispatcher\NotificationDispatcher.csproj", "{1924ED6E-7FE3-4A41-A0F5-7A61AB707A93}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Api", "NotificationDispatcher\Web.Api.csproj", "{1924ED6E-7FE3-4A41-A0F5-7A61AB707A93}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4576EB7E-E73E-450E-8A9E-F0C02FC3EBC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{E81C0DDA-0DA8-4CEF-AC66-DC0634BE7994}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Model", "Domain.Model\Domain.Model.csproj", "{AD15B2CB-1657-4570-889D-266DBDD75D99}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,14 @@ Global
 		{1924ED6E-7FE3-4A41-A0F5-7A61AB707A93}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1924ED6E-7FE3-4A41-A0F5-7A61AB707A93}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1924ED6E-7FE3-4A41-A0F5-7A61AB707A93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E81C0DDA-0DA8-4CEF-AC66-DC0634BE7994}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E81C0DDA-0DA8-4CEF-AC66-DC0634BE7994}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E81C0DDA-0DA8-4CEF-AC66-DC0634BE7994}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E81C0DDA-0DA8-4CEF-AC66-DC0634BE7994}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD15B2CB-1657-4570-889D-266DBDD75D99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD15B2CB-1657-4570-889D-266DBDD75D99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD15B2CB-1657-4570-889D-266DBDD75D99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD15B2CB-1657-4570-889D-266DBDD75D99}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
