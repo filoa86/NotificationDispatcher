@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2050
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationDispatcher", "NotificationDispatcher\NotificationDispatcher.csproj", "{1924ED6E-7FE3-4A41-A0F5-7A61AB707A93}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1924ED6E-7FE3-4A41-A0F5-7A61AB707A93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1924ED6E-7FE3-4A41-A0F5-7A61AB707A93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1924ED6E-7FE3-4A41-A0F5-7A61AB707A93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1924ED6E-7FE3-4A41-A0F5-7A61AB707A93}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1D413051-804C-47C8-994A-A7CF85C174D8}
+	EndGlobalSection
+EndGlobal
