@@ -11,6 +11,11 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Internal;
+using Microsoft.EntityFrameworkCore.Storage;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace Data.Infrastructure
 {
@@ -52,7 +57,10 @@ namespace Data.Infrastructure
                 GenerateDefaultValueForId(entity);
             }
             SetTrackingInformations(entity, TrackOperation.Insert);
-            return DbSet.Add(entity);
+
+            var result = DbSet.Add(entity);
+
+            return result.Entity;
         }
 
         public virtual IEnumerable<T> Add(IEnumerable<T> entities)
@@ -69,9 +77,12 @@ namespace Data.Infrastructure
         public virtual T Update(T entity)
         {
             SetTrackingInformations(entity, TrackOperation.Update);
+
             var result = DbSet.Attach(entity);
+
             DbContext.Entry(entity).State = EntityState.Modified;
-            return result;
+
+            return result.Entity;
         }
         public virtual IEnumerable<T> Update(IEnumerable<T> entities)
         {
@@ -206,17 +217,19 @@ namespace Data.Infrastructure
         {
             try
             {
-                //TODO: vautare il valore di timeout. E' stato modificato questo perchè la GetSequence è la prima cosa che viene chiamata
-                DbContext.Database.CommandTimeout = 180;
-                var rawQuery = DbContext.Database.SqlQuery<int>(String.Format("declare @idn int; EXEC dbo.GetSequence @tableName = '{0}', @rangeSize = {1}, @value = @idn output; select @idn", tableName, rangeSize));
-                var task = rawQuery.SingleAsync();
-                int nextVal = task.Result;
+                SqlParameter[] _params =
+                {
+                    new SqlParameter("@idn", SqlDbType.Int) {Direction = ParameterDirection.Output}
+                };
 
-                return nextVal;
+                string sql = string.Format("DECLARE @idn INT; EXEC dbo.GetSequence @tableName = '{0}', @rangeSize = {1}, @value = @idn output;", tableName, rangeSize);
+                var result = DbContext.Database.ExecuteSqlCommand(sql, _params); ;
+
+                return (int) _params[0].Value;
             }
             catch (Exception e)
             {
-                // throw new Exception(String.Format(BackendResources.ErrSequenceTable, tableName));
+                throw new Exception(string.Format("Missing sequence table for {0}", tableName));
             }
         }
     }

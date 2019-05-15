@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Domain.Service;
 using Microsoft.AspNetCore.Mvc;
 
 namespace NotificationDispatcher.Controllers
@@ -10,6 +11,12 @@ namespace NotificationDispatcher.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private readonly IMessageService _messageService;
+
+        public ValuesController(IMessageService messageService)
+        {
+            _messageService = messageService;
+        }
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
